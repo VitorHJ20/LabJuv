@@ -4,7 +4,7 @@ class Card {
     constructor({ text, container_id }) {
         this.container_id = container_id;
         this.element = `
-            <div class="col-sm-6 m-2">
+            <div class="col m-2">
                 <div class="card">
                     <div class="card-body justify-content-center">
                         <img src="./src/assets/anonimo.svg" alt="Imagem de anonimo" class="img-fluid pb-2" style="max-width:40px;">

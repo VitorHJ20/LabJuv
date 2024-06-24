@@ -148,6 +148,8 @@ h1 {
   font-weight: 400;
 }
 
+
+
 #card-grid {
   display: flex;
   flex-direction: column;
@@ -159,13 +161,19 @@ h1 {
   overflow: hidden scroll;
 }
 
+
+
 #card-grid > * {
   overflow: hidden;
 }
 
 #questions-container > div > div > .card {
+  min-height: fit-content;
+  max-width: 500px;
   overflow-y: hidden;
 }
+
+
 
 #about-container {
   background-color: #DDF1FC;
@@ -200,9 +208,8 @@ btn btn-dark px-5 custom-button
   color: white;
   padding: 20px;
 }
-card
-#apoiop
-{
+
+#apoiop{
   background-color: #9FD2EE;
   color: #37426B;
   padding: 20px;
