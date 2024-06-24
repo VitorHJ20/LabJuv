@@ -108,7 +108,7 @@ class MessageSystem {
 
             this.listDocumentsFromDB();
 
-            console.log('Mensagem enviada!!');
+            input.value = "";
         } catch (error) {
             console.log(error)
         }
