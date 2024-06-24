@@ -4,15 +4,13 @@ class Card {
     constructor({ text, container_id }) {
         this.container_id = container_id;
         this.element = `
-            <div id="card-grid">
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body justify-content-center">
-                            <img src="./src/assets/anonimo.svg" alt="Imagem de anonimo" class="img-fluid pb-2" style="max-width:40px;">
-                            <p class="card-text">
-                                ${text}
-                            </p>
-                        </div>
+            <div class="col-sm-6 m-2">
+                <div class="card">
+                    <div class="card-body justify-content-center">
+                        <img src="./src/assets/anonimo.svg" alt="Imagem de anonimo" class="img-fluid pb-2" style="max-width:40px;">
+                        <p class="card-text">
+                            ${text}
+                        </p>
                     </div>
                 </div>
             </div>
@@ -45,14 +43,18 @@ class MessageSystem {
         this._databases = new Databases(this._client);
     }
 
-    _getMessageFromInput() { return document.querySelector("#input-message") };
+    _getMessageFromInput() { 
+        console.log("_getMessageFromInput() executou certo");
+        return document.querySelector("#input-message");
+    };
 
     _checkValueValidation({ value }) {
         const palavras = value.split(' ');
 
-        if (value !== '' && value.length >= 30 && palavras.length > 8) {
+        if (value !== '' && value.length >= 20 && palavras.length > 5) {
             return true;
         } else {
+            console.log('Validation in _checkValueValidation({ value }): fail')
             return false;
         }
     }
@@ -91,8 +93,7 @@ class MessageSystem {
             const input = this._getMessageFromInput();
             const value = input.value;
 
-            const validation_of_value = this._checkValueValidation({ value });
-
+            const validation_of_value = this._checkValueValidation({value});
 
             if (validation_of_value) {
                 response = await this._createDocumentInAppwrite({
@@ -142,10 +143,6 @@ var message_system = new MessageSystem({
 
 function onClickSend() {
     message_system.sendMessageToDB();
-}
-
-function onListDocuments() {
-
 }
 
 function onLoad() {
